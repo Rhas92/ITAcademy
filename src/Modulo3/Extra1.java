@@ -9,11 +9,11 @@ public class Extra1 {
         int multi = 0;
         int triple = 0;
 
-        System.out.println("indica el numero que quieras utilizar: ");
+        System.out.println("\nindica el numero que quieras utilizar: \n");
         num1 = entrada.nextInt();
         multi = (num1 * 2);
         triple = (num1 * 3);
-        System.out.println("el doble de " + num1 + " es: " + multi);
-        System.out.println("el triple es: " + triple);
+        System.out.println("\nel doble de " + num1 + " es: " + multi);
+        System.out.println("\nel triple de " + num1 + " es: " + triple);
     }
 }

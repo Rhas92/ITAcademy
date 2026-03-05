@@ -2,22 +2,21 @@ package Modulo3;
 
 import java.util.Scanner;
 
-public class Promedios {
+public class Ejercicio3 {
 
 	public static void main(String[] args) {
-		// TODO Auto-generated method stub
 		Scanner entrada = new Scanner(System.in);
-		int num1 = 0;
-		int num2 = 0;
-		int num3 = 0;
-		float prom = 0;
+		float num1;
+		float num2;
+		float num3;
+		float prom;
 		
 		System.out.println("indica la primera nota: ");
-		num1 = entrada.nextInt();
+		num1 = entrada.nextFloat();
 		System.out.println("indica la segunda nota: ");
-		num2 = entrada.nextInt();
+		num2 = entrada.nextFloat();
 		System.out.println("indica la tercera nota: ");
-		num3 = entrada.nextInt();
+		num3 = entrada.nextFloat();
 		prom = (num1 + num2 + num3) / 3;
 		System.out.println("El promedio de tus notas es: " + prom);
 	}
