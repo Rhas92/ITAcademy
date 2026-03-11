@@ -1,4 +1,4 @@
-package Modulo4;
+/*package Modulo4;
 
 import java.util.Scanner;
 
@@ -23,8 +23,10 @@ public class Ejercicio2
                     IO.println("\nBachillerato");
             default ->
                     IO.println("\nFP o Universidad");
-        }
-        /*
+        }*//*
+
+        */
+/*
         *   Alternativa
         *
         * if (edad <= 5)
@@ -38,6 +40,8 @@ public class Ejercicio2
         * else
         *   IO.println("\nFP o Universidad");
         *
-        * */
+        * *//*
+
     }
 }
+*/

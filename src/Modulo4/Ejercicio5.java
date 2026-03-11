@@ -21,24 +21,26 @@ public class Ejercicio5
 
         switch(operador)
         {
-            case "+":
+            case "+" -> {
                 resultado = num1 + num2;
                 System.out.println("\nEl resultado de la operacion es: " + num1 + " " + operador + " " + num2 + " = " + resultado);
-                break;
-            case "-":
+            }
+            case "-" -> {
                 resultado = num1 - num2;
                 System.out.println("\nEl resultado de la operacion es: " + num1 + " " + operador + " " + num2 + " = " + resultado);
-                break;
-            case "*":
+            }
+            case "*" -> {
                 resultado = num1 * num2;
                 System.out.println("\nEl resultado de la operacion es: " + num1 + " " + operador + " " + num2 + " = " + resultado);
-                break;
-            case "/":
+            }
+            case "/" -> {
+                if (num2 == 0)
+                    throw new IllegalArgumentException("\nNo puedes dividir por 0");
                 resultado = num1 / num2;
                 System.out.println("\nEl resultado de la operacion es: " + num1 + " " + operador + " " + num2 + " = " + resultado);
-                break;
-            default:
-                System.out.println("\nPor favor introduzca un operador correcto (+,-,*,/)");
+            }
+            default ->
+                throw new IllegalArgumentException("\nPor favor introduzca un operador correcto (+,-,*,/)");
         }
     }
 }
