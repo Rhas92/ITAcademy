@@ -2,15 +2,16 @@ package Modulo4;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 import java.util.Scanner;
 
 public class MenuRestaurante {
     public static void main(String[] args){
         Scanner entrada = new Scanner(System.in);
 
-        ArrayList<String> menuRestaurante = new ArrayList<>(Arrays.asList(
-                "Pizza", "Ensalada", "Hamburguesa", "Pasta"
-        ));
+        List<String> menuRestaurante = new ArrayList<>(
+                List.of("Pizza", "Ensalada", "Hamburguesa", "Pasta")
+        );
         ArrayList<String> precio = new ArrayList<>(Arrays.asList(
                 "8 €", "6 €", "9 €", "7 €"
         ));
