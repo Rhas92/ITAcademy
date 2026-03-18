@@ -10,16 +10,12 @@ public class Ejercicio4 {
         System.out.println("\nAdivine un numero del 1 al 10.");
         double numUsuario = sc.nextDouble();
         int i = 1;
-        while (numRandom != numUsuario && i != 6) {
-            if (i < 6){
+        while (numRandom != numUsuario && i != 5) {
                 System.out.println("\nLo siento no es " + numUsuario + " Adivine un numero del 1 al 10.");
                 i++;
-                System.out.println("\nTe quedan " + (6 - i) + " intentos.");
-                if (i < 6){
-                    numUsuario = sc.nextDouble();
+                numUsuario = sc.nextDouble();
+                System.out.println("\nTe quedan " + (5 - i) + " intentos.");
                 }
-            }
-        }
         if (numRandom == numUsuario) {
             System.out.println("\nEnhorabuena, el número era: " + numRandom);
         }
