@@ -11,7 +11,7 @@ public class Extra2 {
         IO.println("indica el numero entero que quieras utilizar: ");
         num1 = entrada.nextInt();
 
-        varInt = (num1 < 10) ? num1 : 1;
+        varInt = (num1 < 10) ? num1 : num1/10;
         IO.println("Tabla de multiplicar de: " + varInt);
 
         for (int i = 1; i <= 10; i++) {

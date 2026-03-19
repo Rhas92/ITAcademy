@@ -38,6 +38,7 @@ public class MagicNumber {
 
             if (guess == magicNumber) {
                 IO.println("\nCongrats! You've won!");
+                IO.println("\nThe magic number is: " + magicNumber);
                 haGanadoYa = true;
             }
             else {
