@@ -25,6 +25,7 @@ public class Building {
         double totalTime = basicTime + timeFloors;
         double dailyCost = totalTime * 1;
         double monthlyCost = dailyCost * 30;
+        System.out.println("\n" + this.name + " :");
         System.out.println("\nThis building would take " + totalTime + " minutes to maintain." +
                             "\nThe monthly cost of maintenance is: " + monthlyCost + " €");
     }

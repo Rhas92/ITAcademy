@@ -9,7 +9,7 @@ public class Application {
     public void execute () {
         int userOption = 1;
         while (userOption != 0) {
-            System.out.println("\nWelcome to your Bank App \uD83C\uDFE6." + "\nPlease select an option: ");
+            System.out.println("\nWelcome to your Buildings App \uD83C\uDFD9\uFE0F." + "\nPlease select an option: ");
             System.out.println("\n(0) Exit App. \uD83D\uDD34" + "\n(1) Add a Building. \uD83D\uDC64" +
                     "\n(2) Display a Building. \uD83D\uDDD1\uFE0F️" + "\n(3) Delete a building. \uD83C\uDFE7");
             System.out.println();
@@ -26,8 +26,8 @@ public class Application {
     public void addBuilding() {
         System.out.println("\nWhat kind of building are you adding?: " + "\n(0) Exit App." +
                             "\n(1) Hotel." + "\n(2) Hospital." + "\n(3) Cinema.");
-        int buildingtype = sc.nextInt();
-        switch(buildingtype) {
+        int buildingType = sc.nextInt();
+        switch(buildingType) {
             case 0 -> System.out.println("\nThanks for using the app. Goodbye :)");
             case 1 -> addHotel();
             case 2 -> addHospital();
@@ -36,25 +36,32 @@ public class Application {
         }
     }
     public void displayBuilding() {
-        for (int i = 0; i < buildings.size(); i++) {
-            if (buildings.get(i) instanceof Hotel hot) {
-                hot.clean();
-                hot.securityCost();
-                hot.roomService();
-            }
-            else if (buildings.get(i) instanceof Hospital hop) {
-                hop.clean();
-                hop.securityCost();
-                hop.deliverFood();
-            }
-            else if (buildings.get(i) instanceof Cinema c) {
-                c.clean();
-                c.securityCost();
-                System.out.println("\nHow many people are there in the cinema?");
-                int assistants = sc.nextInt();
-                System.out.println("\nHow much does a ticket cost?");
-                double ticketPrice = sc.nextDouble();
-                c.screening(assistants, ticketPrice);
+        System.out.println("\nEnter the name of the building to display: ");
+        String name = sc.next();
+        for (Building building : buildings) {
+            if (name.equals(building.getName())) {
+                switch (building) {
+                    case Hotel hot -> {
+                        hot.clean();
+                        hot.securityCost();
+                        hot.roomService();
+                    }
+                    case Hospital hop -> {
+                        hop.clean();
+                        hop.securityCost();
+                        hop.deliverFood();
+                    }
+                    case Cinema c -> {
+                        c.clean();
+                        c.securityCost();
+                        System.out.println("\nHow many people are there in the cinema?");
+                        int assistants = sc.nextInt();
+                        System.out.println("\nHow much does a ticket cost?");
+                        double ticketPrice = sc.nextDouble();
+                        c.screening(assistants, ticketPrice);
+                    }
+                    default -> System.out.println("\nBuilding not found.");
+                }
             }
         }
     }
