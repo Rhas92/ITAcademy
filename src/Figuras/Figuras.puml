@@ -1,0 +1,104 @@
+@startuml
+' ==========================================================
+' Class Diagram – Example of Inheritance, Abstraction and Polymorphism
+' Package: poo12enero2026.figuras
+'
+' Didactic objective:
+'  - Abstraction: Shape defines the "contract" (what can be done with a shape)
+'  - Inheritance: Circle and Rectangle inherit from Shape
+'  - Polymorphism: client code (MainFiguras) works with List<Shape>
+'    and executes concrete methods depending on the actual type of the object.
+' ==========================================================
+
+skinparam classAttributeIconSize 0
+hide empty members
+
+package "poo12enero2026.figuras" {
+
+  abstract class Shape {
+    - color : String
+    --
+    + Shape(color : String)
+    + getColor() : String
+    {abstract} + calculateArea() : double
+    {abstract} + calculatePerimeter() : double
+  }
+
+  class Circle {
+    - radius : double
+    --
+    + Circle(radius : double, color : String)
+    + getRadius() : double
+    + calculateArea() : double
+    + calculatePerimeter() : double
+    + toString() : String
+  }
+
+  class Rectangle {
+    - width : double
+    - height : double
+    --
+    + Rectangle(width : double, height : double, color : String)
+    + getWidth() : double
+    + getHeight() : double
+    + calculateArea() : double
+    + calculatePerimeter() : double
+    + toString() : String
+  }
+
+  class MainFiguras {
+    {static} - main() : void
+  }
+
+  ' -------------------------
+  ' Relationships (UML)
+  ' -------------------------
+
+  Shape <|-- Circle : extends
+  Shape <|-- Rectangle : extends
+
+  MainFiguras ..> Shape : uses (List<Shape>)
+  MainFiguras ..> Circle : creates
+  MainFiguras ..> Rectangle : creates
+}
+
+' ==========================================================
+' Didactic notes
+' ==========================================================
+
+note right of Shape
+  Abstraction:
+  - Shape cannot be instantiated (abstract).
+  - Forces its subclasses to implement:
+    calculateArea() and calculatePerimeter().
+  - Encapsulates the common attribute: color.
+end note
+
+note right of Circle
+  Inheritance + Polymorphism:
+  - Implements the Shape contract.
+  - calculateArea() and calculatePerimeter()
+    use radius (Math.PI).
+  - Validates radius > 0 in the constructor.
+end note
+
+note right of Rectangle
+  Inheritance + Polymorphism:
+  - Implements the Shape contract.
+  - calculateArea() and calculatePerimeter()
+    use width and height.
+  - Validates width > 0 and height > 0.
+end note
+
+note bottom of MainFiguras
+  Polymorphism:
+  - List<Shape> contains objects of different types
+    (Circle and Rectangle).
+  - In the loop, the calls:
+      shape.calculateArea()
+      shape.calculatePerimeter()
+    are resolved at runtime
+    depending on the actual type of the object.
+end note
+
+@enduml
