@@ -1,10 +1,10 @@
 package Modulo8.Ejercicio6;
 
 public class Car {
-    int power;
-    int maxSpeed;
-    String colour;
-    double price;
+    private int power;
+    private int maxSpeed;
+    private String colour;
+    private double price;
 
     public Car(int power, int maxSpeed, String colour, double price) {
         this.power = power;

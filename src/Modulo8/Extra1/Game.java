@@ -3,8 +3,8 @@ package Modulo8.Extra1;
 import java.util.ArrayList;
 
 public class Game {
-    ArrayList<Player> players = new ArrayList<>();
-    Revolver revolver;
+    private ArrayList<Player> players = new ArrayList<>();
+    private Revolver revolver;
 
     public Game(ArrayList<Player> players, Revolver revolver) {
         this.players = players;

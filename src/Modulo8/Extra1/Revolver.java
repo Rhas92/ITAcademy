@@ -3,8 +3,8 @@ package Modulo8.Extra1;
 import java.util.Random;
 
 public class Revolver {
-    int currentPosition;
-    int bulletPosition;
+    private int currentPosition;
+    private int bulletPosition;
 
     public Revolver() {
         Random random = new Random();

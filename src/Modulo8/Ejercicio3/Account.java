@@ -1,8 +1,8 @@
 package Modulo8.Ejercicio3;
 
 public class Account {
-    int accountNumber;
-    int accountBalance;
+    private int accountNumber;
+    private int accountBalance;
 
     public Account(int accountNumber) {
         this.accountNumber = accountNumber;
@@ -14,6 +14,7 @@ public class Account {
     public int getAccountBalance() {
         return accountBalance;
     }
+
     public void setAccountNumber(int accountNumber) {
         this.accountNumber = accountNumber;
     }

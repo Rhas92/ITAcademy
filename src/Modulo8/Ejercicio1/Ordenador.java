@@ -11,11 +11,11 @@ package Modulo8.Ejercicio1;
  * @version 1.0
  */
 public class Ordenador {
-    String marca;
-    String modelo;
-    String procesador;
-    int cantidadRAM;
-    double capacidadDiscoDuro;
+    private String marca;
+    private String modelo;
+    private String procesador;
+    private int cantidadRAM;
+    private double capacidadDiscoDuro;
     /**
      * Constructor básico. Crea un ordenador con marca y modelo.
      * <p>
@@ -41,11 +41,33 @@ public class Ordenador {
      * @param capacidadDiscoDuro  capacidad del disco duro en megabytes
      */
     public Ordenador(String marca, String modelo, String procesador, int cantidadRAM, double capacidadDiscoDuro) {
+        validacionOrdenador(marca, modelo, procesador, cantidadRAM, capacidadDiscoDuro);
         this.marca = marca;
         this.modelo = modelo;
         this.procesador = procesador;
         this.cantidadRAM = cantidadRAM;
         this.capacidadDiscoDuro = capacidadDiscoDuro;
+    }
+
+    /**
+     * Método para validar los parametros del constructor
+     * @param marca
+     * @param modelo
+     * @param procesador
+     * @param cantidadRAM
+     * @param capacidadDiscoDuro
+     */
+    private void validacionOrdenador(String marca, String modelo, String procesador, int cantidadRAM, double capacidadDiscoDuro) {
+        if (marca == null || marca.isBlank())
+            throw new IllegalArgumentException("La marca no puede estar vacía.");
+        if (modelo == null || modelo.isBlank())
+            throw new IllegalArgumentException("El modelo no puede estar vacío.");
+        if (procesador == null || procesador.isBlank())
+            throw new IllegalArgumentException("El procesador no puede estar vacío.");
+        if (cantidadRAM < 2000)
+            throw new IllegalArgumentException("La cantidad de RAM debe ser mayor o igual a 2000MB.");
+        if (capacidadDiscoDuro < 200)
+            throw new IllegalArgumentException("La cantidad del disco duro debe ser mayor o igual a 200MB.");
     }
     /**
      * Devuelve la marca del ordenador.

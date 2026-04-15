@@ -4,10 +4,10 @@ package Modulo8.Ejercicio2;
  * Permite calcular el personal y coste de mantenimiento necesarios.
  */
 public class Hotel {
-    String nombre; /** Nombre del hotel. */
-    int numHabitaciones;
-    int numPlantas;
-    int superficieTotal; /** Superficie total del hotel en metros cuadrados. */
+    private String nombre;
+    private int numHabitaciones;
+    private int numPlantas;
+    private int superficieTotal;
 
     /**
      * Constructor que inicializa todos los atributos del hotel.
@@ -18,10 +18,42 @@ public class Hotel {
      * @param superficieTotal superficie total en m²
      */
     public Hotel(String nombre, int numHabitaciones, int numPlantas, int superficieTotal) {
+        validacionHotel(nombre, numHabitaciones, numPlantas, superficieTotal);
         this.nombre = nombre;
         this.numHabitaciones = numHabitaciones;
         this.numPlantas = numPlantas;
         this.superficieTotal = superficieTotal;
+    }
+
+    /**
+     * Validación de parametros:
+     *
+     * @param nombre
+     * @param numHabitaciones
+     * @param numPlantas
+     * @param superficieTotal
+     */
+    private void validacionHotel(String nombre, int numHabitaciones, int numPlantas, int superficieTotal) {
+        validacionNombre(nombre);
+        validacionHabitaciones(numHabitaciones);
+        validacionPlantas(numPlantas);
+        validacionSuperficie(superficieTotal);
+    }
+    private void validacionNombre(String nombre) {
+        if (nombre == null || nombre.isBlank())
+            throw new IllegalArgumentException("El nombre no puede estar vacío.");
+    }
+    private void validacionHabitaciones(int numHabitaciones) {
+        if (numHabitaciones <= 0)
+            throw new IllegalArgumentException("Tiene que haber un numero positivo de habitaciones");
+    }
+    private void validacionPlantas(int numPlantas) {
+        if (numPlantas <= 0)
+            throw new IllegalArgumentException("Tiene que haber un numero positivo de plantas");
+    }
+    private void validacionSuperficie(int superficieTotal) {
+        if (superficieTotal <= 0)
+            throw new IllegalArgumentException("La superficie total deber ser un número positivo");
     }
     /**
      * Devuelve el nombre del hotel.
@@ -61,6 +93,7 @@ public class Hotel {
      * @param nombre nuevo nombre del hotel
      */
     public void setNombre(String nombre) {
+        validacionNombre(nombre);
         this.nombre = nombre;
     }
     /**
@@ -69,6 +102,7 @@ public class Hotel {
      * @param numHabitaciones nuevo número de habitaciones
      */
     public void setNumHabitaciones(int numHabitaciones) {
+        validacionHabitaciones(numHabitaciones);
         this.numHabitaciones = numHabitaciones;
     }
     /**
@@ -77,6 +111,7 @@ public class Hotel {
      * @param numPlantas nuevo número de plantas
      */
     public void setNumPlantas(int numPlantas) {
+        validacionPlantas(numPlantas);
         this.numPlantas = numPlantas;
     }
     /**
@@ -85,6 +120,7 @@ public class Hotel {
      * @param superficieTotal nueva superficie total en m²
      */
     public void setSuperficieTotal(int superficieTotal) {
+        validacionSuperficie(superficieTotal);
         this.superficieTotal = superficieTotal;
     }
     /**

@@ -1,10 +1,10 @@
 package Modulo8.Extra1;
 
 public class Player {
-    int id;
-    String name;
-    String nickname;
-    boolean alive;
+    private int id;
+    private String name;
+    private String nickname;
+    private boolean alive;
 
     public Player(int id, String name) {
         this.id = id;

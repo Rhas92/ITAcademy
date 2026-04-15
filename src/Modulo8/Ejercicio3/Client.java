@@ -3,13 +3,19 @@ package Modulo8.Ejercicio3;
 import java.util.ArrayList;
 
 public class Client {
-    ArrayList<Account> accounts = new ArrayList<>();
-    String name;
-    String lastName;
+    private ArrayList<Account> accounts = new ArrayList<>();
+    private String name;
+    private String lastName;
 
     public Client(String name, String lastName) {
         this.name = name;
         this.lastName = lastName;
+    }
+    public Account getAccount(int index) {
+        return accounts.get(index);
+    }
+    public int getAccountCount() {
+        return accounts.size();
     }
     public String getName() {
         return name;

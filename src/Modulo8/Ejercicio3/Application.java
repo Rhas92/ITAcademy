@@ -65,7 +65,7 @@ public class Application {
             if(j != -1) {
                 System.out.println("\nPlease enter the amount to deposit: ");
                 int amount = sc.nextInt();
-                clients.get(i).accounts.get(j).deposit(amount);
+                clients.get(i).getAccount(j).deposit(amount);
             }
             else {
                 System.out.println("\nChoose a correct account.");
@@ -82,7 +82,7 @@ public class Application {
             if(j != -1) {
                 System.out.println("\nPlease enter the amount to withdraw: ");
                 int amount = sc.nextInt();
-                clients.get(i).accounts.get(j).withdraw(amount);
+                clients.get(i).getAccount(j).withdraw(amount);
             }
             else {
                 System.out.println("\nChoose a correct account.");
@@ -106,8 +106,8 @@ public class Application {
     }
     public int searchAccount(int accountIndex) {
         System.out.println("\nSelect an account: ");
-        for(int i = 0; i < clients.get(accountIndex).accounts.size(); i++) {
-            System.out.println("(" + (i + 1) + ") " + clients.get(accountIndex).accounts.get(i));
+        for(int i = 0; i < clients.get(accountIndex).getAccountCount(); i++) {
+            System.out.println("(" + (i + 1) + ") " + clients.get(accountIndex).getAccount(i));
         }
         return sc.nextInt() -1;
     }
