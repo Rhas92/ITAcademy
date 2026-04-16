@@ -1,4 +1,4 @@
-package poo12enero2026.figuras;
+package Figuras;
 
 import java.util.List;
 
@@ -11,7 +11,8 @@ public class MainFiguras {
                 new Rectangle(4, 6, "Blue"),
                 new Circle(2, "Red"),
                 new Triangle(5, 7, 7, "Orange"),
-                new Square(4, "Green")
+                new Square(4, "Green"),
+                new Diamond(5, "Red")
         );
 
         for (var shape : shapes) {

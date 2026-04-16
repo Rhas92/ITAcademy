@@ -8,8 +8,25 @@ public class Client {
     private String lastName;
 
     public Client(String name, String lastName) {
+        verifyClient(name, lastName);
         this.name = name;
         this.lastName = lastName;
+    }
+    private void verifyClient(String name, String lastName) {
+        verifyName(name);
+        verifyLastName(lastName);
+    }
+    private void verifyName(String name) {
+        if (name == null)
+            throw new IllegalArgumentException("The name of the client can't be null.");
+        if (name.isBlank())
+            throw new IllegalArgumentException("The name of the client can't be blank.");
+    }
+    private void verifyLastName(String lastName) {
+        if (lastName == null)
+            throw new IllegalArgumentException("The Last name of the client can't be null.");
+        if (lastName.isBlank())
+            throw new IllegalArgumentException("The Last name of the client can't be blank.");
     }
     public Account getAccount(int index) {
         return accounts.get(index);
@@ -24,9 +41,11 @@ public class Client {
         return lastName;
     }
     public void setName(String name) {
+        verifyName(name);
         this.name = name;
     }
     public void setLastName(String lastName) {
+        verifyLastName(lastName);
         this.lastName = lastName;
     }
     public void addAccount(Account account) {

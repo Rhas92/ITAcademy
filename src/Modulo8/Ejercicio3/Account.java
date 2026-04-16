@@ -5,8 +5,14 @@ public class Account {
     private int accountBalance;
 
     public Account(int accountNumber) {
+        verifyAccount(accountNumber);
         this.accountNumber = accountNumber;
         this.accountBalance = 0;
+    }
+    private void verifyAccount(int accountNumber) {
+        if (accountNumber < 1000000) {
+            throw new IllegalArgumentException("El account number must be superior to 1000000");
+        }
     }
     public int getAccountNumber() {
         return accountNumber;
@@ -16,10 +22,8 @@ public class Account {
     }
 
     public void setAccountNumber(int accountNumber) {
+        verifyAccount(accountNumber);
         this.accountNumber = accountNumber;
-    }
-    public void setAccountBalance(int accountBalance) {
-        this.accountBalance = accountBalance;
     }
     public int deposit(int amount) {
         accountBalance += amount;

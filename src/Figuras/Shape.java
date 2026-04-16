@@ -1,4 +1,4 @@
-package poo12enero2026.figuras;
+package Figuras;
 
 public abstract class Shape {
     private String color;

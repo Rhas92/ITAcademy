@@ -1,0 +1,47 @@
+@startuml
+
+abstract class Pokemon {
+  - String nombre
+  - int nivel
+  - int puntosSalud
+  --
+  + Pokemon(nombre, nivel, puntosSalud)
+  + getNombre(): String
+  + getNivel(): int
+  + getPuntosSalud(): int
+  + recibirDanio(danio: int): void
+  + estaDebilitado(): boolean
+  + toString(): String
+  + {abstract} atacar(): int
+  + {abstract} usarDefensaEspecial(): String
+}
+
+class PokemonFuego {
+  - int temperaturaLlama
+  --
+  + PokemonFuego(nombre, nivel, puntosSalud, temperaturaLlama)
+  + getTemperaturaLlama(): int
+  + atacar(): int
+  + usarDefensaEspecial(): String
+}
+
+class PokemonAgua {
+  - int precisionChorro
+  --
+  + PokemonAgua(nombre, nivel, puntosSalud, precisionChorro)
+  + getPrecisionChorro(): int
+  + atacar(): int
+  + usarDefensaEspecial(): String
+}
+
+class Main {
+  + main(args: String[]): void
+}
+
+Pokemon <|-- PokemonFuego
+Pokemon <|-- PokemonAgua
+Main ..> Pokemon : uses
+Main ..> PokemonFuego : creates
+Main ..> PokemonAgua : creates
+
+@enduml
