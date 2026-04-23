@@ -1,8 +1,8 @@
 package Modulo8.Ejercicio6;
 
 public class Pilot extends Worker{
-    double height;
-    double weight;
+    private double height;
+    private double weight;
 
     public Pilot(String name, String lastName, int age, int yearsInTeam, double height, double weight) {
         super(name, lastName, age, yearsInTeam);
@@ -19,7 +19,7 @@ public class Pilot extends Worker{
 
     @Override
     public String toString() {
-        return ("\nName: " + name + "\nLast Name: " + lastName + "\nAge: " + age + "Years in the team: " +
-                yearsInTeam + "\nHeight: " + height + "\nWeight: " + weight + "Salary: " + salary);
+        return ("\nName: " + getName() + "\nLast Name: " + getLastName() + "\nAge: " + getAge() + "Years in the team: " +
+                getYearsInTeam() + "\nHeight: " + getHeight() + "\nWeight: " + getWeight() + "Salary: " + getSalary());
     }
 }

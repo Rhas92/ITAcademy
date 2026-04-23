@@ -13,8 +13,9 @@ public class WaterPokemon extends Pokemon {
     }
 
     @Override
-    public int attack() {
-        return getLevel() + accuracy / 5;
+    public void attack(Pokemon pokemon) {
+        int damage = (getLevel() + accuracy / 5);
+        pokemon.takeDamage(damage);
     }
     @Override
     public String useSpecialDefense () {

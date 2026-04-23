@@ -3,10 +3,10 @@ package Modulo8.Ejercicio6;
 import java.util.ArrayList;
 
 public class Scuderia {
-    ArrayList<Car> cars = new ArrayList<>();
-    String name;
-    double budget;
-    String country;
+    private ArrayList<Car> cars = new ArrayList<>();
+    private String name;
+    private double budget;
+    private String country;
 
     public Scuderia(String name, double budget, String country) {
         this.name = name;

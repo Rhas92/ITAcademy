@@ -1,0 +1,45 @@
+@startuml
+
+abstract class Curso {
+  - titulo: String
+  - area: String
+  - nivelBase: int
+  + getTitulo(): String
+  + getArea(): String
+  + getNivelBase(): int
+  + {abstract} calcularNivelTotal(): int
+}
+
+class CursoPresencial {
+  - horas: int
+  - evaluacion: String
+  + calcularNivelTotal(): int
+}
+
+class CursoOnline {
+  - modulos: List<Modulo>
+  + calcularNivelTotal(): int
+}
+
+class Modulo {
+  - nombre: String
+  - peso: int
+  + getNombre(): String
+  + getPeso(): int
+}
+
+class PlataformaFormacion {
+  - nombre: String
+  - cursos: List<Curso>
+  + registrarCurso(c: Curso): void
+  + calcularNivelTotal(): int
+  + obtenerCursoMasCompleto(): Curso
+  + listarModulosOnline(area: String): void
+}
+
+Curso <|-- CursoPresencial
+Curso <|-- CursoOnline
+CursoOnline "1" *-- "1..*" Modulo
+PlataformaFormacion "1" *-- "0..*" Curso
+
+@enduml

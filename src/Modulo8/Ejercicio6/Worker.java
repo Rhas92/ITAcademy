@@ -1,11 +1,11 @@
 package Modulo8.Ejercicio6;
 
 public class Worker {
-    String name;
-    String lastName;
-    int age;
-    int yearsInTeam;
-    double salary;
+    private String name;
+    private String lastName;
+    private int age;
+    private int yearsInTeam;
+    private double salary;
 
     public Worker(String name, String lastName, int age, int yearsInTeam) {
         this.name = name;
@@ -30,4 +30,14 @@ public class Worker {
         return salary;
     }
 
+    @Override
+    public String toString() {
+        return "Worker{" +
+                "name='" + name + '\'' +
+                ", lastName='" + lastName + '\'' +
+                ", age=" + age +
+                ", yearsInTeam=" + yearsInTeam +
+                ", salary=" + salary +
+                '}';
+    }
 }

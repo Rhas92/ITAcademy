@@ -1,0 +1,48 @@
+@startuml
+
+abstract class Event {
+  - name: String
+  - category: String
+  - baseRating: int
+  + getName(): String
+  + getCategory(): String
+  + getBaseRating(): int
+  + {abstract} calculateTotalScore(): int
+}
+
+class InPersonEvent {
+  - capacity: int
+  - format: String
+  + getCapacity(): int
+  + getFormat(): String
+  + calculateTotalScore(): int
+}
+
+class OnlineEvent {
+  - speakers: List<Speaker>
+  + getSpeakers(): List<Speaker>
+  + calculateTotalScore(): int
+}
+
+class Speaker {
+  - name: String
+  - relevance: int
+  + getName(): String
+  + getRelevance(): int
+}
+
+class CulturalAgenda {
+  - name: String
+  - events: List<Event>
+  + registerEvent(e: Event): void
+  + calculateTotalScore(): int
+  + getMostNotableEvent(): Event
+  + listOnlineSpeakers(category: String): void
+}
+
+Event <|-- InPersonEvent
+Event <|-- OnlineEvent
+OnlineEvent "1" *-- "1..*" Speaker
+CulturalAgenda "1" *-- "0..*" Event
+
+@enduml

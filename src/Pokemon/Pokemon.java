@@ -49,7 +49,7 @@ public abstract class Pokemon {
     public boolean isDebilitated() {
         return health <= 0;
     }
-    public abstract int attack();
+    public abstract void attack(Pokemon pokemon);
     public abstract String useSpecialDefense();
 
     @Override

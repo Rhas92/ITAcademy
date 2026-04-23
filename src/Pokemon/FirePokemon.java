@@ -17,8 +17,9 @@ public class FirePokemon extends Pokemon{
         return flameTemp;
     }
     @Override
-    public int attack() {
-        return getLevel() + flameTemp / 10;
+    public void attack(Pokemon pokemon) {
+        int damage = getLevel() + flameTemp / 10;
+        pokemon.takeDamage(damage);
     }
     @Override
     public String useSpecialDefense() {

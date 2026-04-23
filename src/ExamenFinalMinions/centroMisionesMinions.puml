@@ -1,0 +1,102 @@
+@startuml
+    abstract class Minion {
+        - name: String
+        - predominantColor: String
+        - baseEnthusiasmLevel: int
+        --
+        + getName(): String
+        + getPredominantColor(): String
+        + getBaseEnthusiasmLevel(): int
+        + {abstract} calculatePerformanceLevel(): int
+        + toString(): String
+    }
+
+    class MinionConstructor extends Minion {
+        - numberOfTools: int
+        --
+        + MinionConstructor(name: String, color: String, enthusiasm: int, tools: int): void
+        + getNumberOfTools(): int
+        + calculatePerformanceLevel(): int
+        + toString(): String
+    }
+
+    class MinionSinger extends Minion {
+        - track: List<Song>
+        --
+        + MinionSinger(name: String, color: String, enthusiasm: int, tracks: List<Song>): void
+        + getSongs(): List<Song>
+        + calculatePerformanceLevel(): int
+        + toString(): String
+    }
+
+    class MinionChef extends Minion {
+        - completedRecipes: int
+        - kitchenCleanlinessLevel: int
+        --
+        + MinionChef(name: String, color: String, enthusiasm: int, recipes: int, cleanness: int): void
+        + getCompletedRecipes(): int
+        + getKitchenCleanlinessLevel(): int
+        + calculatePerformanceLevel(): int
+        + toString(): String
+    }
+
+    class Track {
+        - title: String
+        - durationInSeconds: int
+        --
+        + Track(title: String, durationInSeconds: int): void
+        + getTitle(): String
+        + getDurationInSeconds(): int
+        + toString(): String
+    }
+
+    class MissionCenter {
+        - name: String
+        - city: String
+        - minions: List<Minion>
+        --
+        + MissionCenter(name: String, city: String): void
+        + registerMinion(minion: Minion): void
+        + showAllMinions(): void
+        + calculateTotalPerformance(): int
+        + calculatePerformanceByType(type: String): int
+        + showSingerTracks(): void
+        + getMinionWithHighestPerformance(): Minion
+        + toString(): String
+    }
+
+    ' Composition
+    MinionSinger *-- "2..*" Track : contains >
+    MissionCenter *-- "0..*" Minion : registers >
+
+    note right of Minion
+        <b>Abstract class</b>
+        calculatePerformanceLevel() must be
+        overridden by each subclass
+    end note
+
+    note bottom of MinionConstructor
+        <b>Formula:</b>
+        baseEnthusiasm + (tools × 3)
+    end note
+
+    note bottom of MinionSinger
+        <b>Formula:</b>
+        baseEnthusiasm + (Σ seconds / 10)
+        <b>Constraint:</b>
+        Minimum 2 tracks at creation (fail fast)
+        Songs cannot be added after creation
+    end note
+
+    note bottom of MinionChef
+        <b>Formula:</b>
+        baseEnthusiasm + (recipes × 4) + cleanness
+        <b>Constraint:</b>
+        cleanness must be between 0 and 10
+    end note
+
+    note right of MissionCenter
+        <b>Constraints:</b>
+        No duplicate minion names allowed
+    end note
+@enduml

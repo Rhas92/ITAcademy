@@ -16,7 +16,6 @@ public class App {
         for (Pokemon pokemon : equipo) {
             System.out.println(pokemon);
             System.out.println("Defensa especial: " + pokemon.useSpecialDefense());
-            System.out.println("Ataque lanzado: " + pokemon.attack());
             System.out.println();
         }
 
@@ -26,8 +25,7 @@ public class App {
         Pokemon defensor1 = equipo.get(1); // Squirtle
 
         System.out.println(atacante1.getName() + " ataca a " + defensor1.getName());
-        int danio1 = atacante1.attack();
-        defensor1.takeDamage(danio1);
+        atacante1.attack(defensor1);
 
         System.out.println(defensor1);
         System.out.println("¿Está debilitado? " + defensor1.isDebilitated());
@@ -38,8 +36,7 @@ public class App {
         Pokemon defensor2 = equipo.get(3); // Psyduck
 
         System.out.println(atacante2.getName() + " ataca a " + defensor2.getName());
-        int danio2 = atacante2.attack();
-        defensor2.takeDamage(danio2);
+        atacante2.attack(defensor2);
 
         System.out.println(defensor2);
         System.out.println("¿Está debilitado? " + defensor2.isDebilitated());

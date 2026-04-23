@@ -1,0 +1,75 @@
+@startuml
+
+abstract class Minion {
+  - name: String
+  - predominantColor: String
+  - baseEnthusiasmLevel: int
+  --
+  + getName(): String
+  + getPredominantColor(): String
+  + getBaseEnthusiasmLevel(): int
+  + {abstract} calculatePerformanceLevel(): int
+  + toString(): String
+}
+
+class MinionSinger {
+  - songs: List<Song>
+  --
+  + MinionSinger(name: String, color: String, enthusiasm: int, songs: List<Song>): void
+  + getSongs(): List<Song>
+  + calculatePerformanceLevel(): int
+  + toString(): String
+}
+
+class MinionConstructor {
+  - numberOfTools: int
+  --
+  + MinionConstructor(name: String, color: String, enthusiasm: int, tools: int): void
+  + getNumberOfTools(): int
+  + calculatePerformanceLevel(): int
+  + toString(): String
+}
+
+class MinionChef {
+  - completedRecipes: int
+  - kitchenCleanlinessLevel: int
+  --
+  + MinionChef(name: String, color: String, enthusiasm: int, recipes: int, cleanness: int): void
+  + getCompletedRecipes(): int
+  + getKitchenCleanlinessLevel(): int
+  + calculatePerformanceLevel(): int
+  + toString(): String
+}
+
+class Track {
+  - title: String
+  - durationInSeconds: int
+  --
+  + Song(title: String, durationInSeconds: int): void
+  + getTitle(): String
+  + getDurationInSeconds(): int
+  + toString(): String
+}
+
+class MissionCenter {
+  - name: String
+  - city: String
+  - minions: List<Minion>
+  --
+  + MissionCenter(name: String, city: String): void
+  + registerMinion(minion: Minion): void
+  + showAllMinions(): void
+  + calculateTotalPerformance(): int
+  + calculatePerformanceByType(type: String): int
+  + showSingerSongs(): void
+  + getMinionWithHighestPerformance(): Minion
+  + toString(): String
+}
+
+Minion <|-- MinionConstructor
+Minion <|-- MinionSinger
+Minion <|-- MinionChef
+MinionSinger "1" *-- "1..*" Track
+MissionCenter "1" *-- "0..*" Minion
+
+@enduml
